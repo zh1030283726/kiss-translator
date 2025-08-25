@@ -848,9 +848,9 @@ export const I18N = {
     zh_TW: `隱藏懸浮按鈕`,
   },
   fab_click_behavior: {
-    zh: `单击按钮动作`,
+    zh: `单击悬浮按钮动作`,
     en: `Single Tab Fab Action`,
-    zh_TW: `單擊懸浮悬浮按钮動作`,
+    zh_TW: `單擊懸浮按钮動作`,
   },
 
   fab_click_menu: {
