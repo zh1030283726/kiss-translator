@@ -3,25 +3,20 @@ name: publish release version
 on:
   push:
     tags:
-      - "latest"   # 你当前就是推送名为 latest 的 tag
+      - "latest"
 
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-
-      # 读取 package.json 的 packageManager 安装 pnpm（不再在 action-setup 里指定 version）
       - uses: pnpm/action-setup@v4
-
       - uses: actions/setup-node@v4
         with:
           node-version: '20.x'
           cache: 'pnpm'
-
       - run: pnpm install --frozen-lockfile
       - run: pnpm build+zip
-
       - uses: actions/upload-artifact@v4
         with:
           name: build-artifacts
@@ -38,21 +33,29 @@ jobs:
           name: build-artifacts
           path: build
 
-      # 如果 tag=latest 的 release 已存在，则更新；否则创建
+      # 重命名到你想要的发布名
+      - name: Rename zips for release
+        shell: bash
+        run: |
+          set -euxo pipefail
+          tag="${GITHUB_REF_NAME}"   # 等同于 ${{ github.ref_name }}
+          mv build/chrome.zip       "build/kiss-translator_${tag}_chrome.zip"       || true
+          mv build/edge.zip         "build/kiss-translator_${tag}_edge.zip"         || true
+          mv build/firefox.zip      "build/kiss-translator_${tag}_firefox.zip"      || true
+          mv build/userscript.zip   "build/kiss-translator_${tag}_userscript.zip"   || true
+          mv build/thunderbird.zip  "build/kiss-translator_${tag}_thunderbird.zip"  || true
+          echo "Artifacts after rename:"
+          ls -lah build
+
       - name: Create or Update GitHub Release
         uses: ncipollo/release-action@v1
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          tag: ${{ github.ref_name }}                          # "latest"
-          name: "${{ github.ref_name }}"               # Release 名称
+          tag: ${{ github.ref_name }}                 # "latest"
+          name: ${{ github.ref_name }}                # 也可写 "Release ${{ github.ref_name }}"
           draft: false
           prerelease: false
-          allowUpdates: true                                   # 允许更新已存在的 release
-          replacesArtifacts: true                              # 替换同名资产
+          allowUpdates: true
+          replacesArtifacts: true
           artifactErrorsFailBuild: true
-          artifacts: |
-                  ./build/chrome.zip=kiss-translator_${{ github.ref_name }}_chrome.zip,
-                  ./build/edge.zip=kiss-translator_${{ github.ref_name }}_edge.zip,
-                  ./build/firefox.zip=kiss-translator_${{ github.ref_name }}_firefox.zip,
-                  ./build/userscript.zip=kiss-translator_${{ github.ref_name }}_userscript.zip,
-                  ./build/thunderbird.zip=kiss-translator_${{ github.ref_name }}_thunderbird.zip
+          artifacts: "build/*.zip"                    # 一行通配符：上传已重命名的所有 zip
