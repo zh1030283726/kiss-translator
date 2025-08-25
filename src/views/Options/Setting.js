@@ -84,6 +84,7 @@ export default function Settings() {
       case "csplist":
         isExt && sendBgMsg(MSG_UPDATE_CSP, value);
         break;
+      
       default:
     }
     updateSetting({
@@ -239,7 +240,9 @@ export default function Settings() {
             name="fabClickAction"
             value={fabClickAction}
             label={i18n("fab_click_behavior")}
-            onChange={handleChange}
+            onChange={(e) =>
+              updateSetting({
+                fabClickAction: Number(e.target.value),}
           >
             <MenuItem value={0}>{i18n("fab_click_menu")}</MenuItem>
             <MenuItem value={1}>{i18n("fab_click_translate")}</MenuItem>
