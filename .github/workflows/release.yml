@@ -51,9 +51,5 @@ jobs:
           replacesArtifacts: true                              # 替换同名资产
           artifactErrorsFailBuild: true
           artifacts: |
-            build/chrome.zip,
-            build/edge.zip,
-            build/firefox.zip,
-            build/userscript.zip,
-            build/thunderbird.zip
+            build/*.zip
           # 也可以用通配符：artifacts: "build/*.zip"
