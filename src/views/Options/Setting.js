@@ -242,7 +242,8 @@ export default function Settings() {
             label={i18n("fab_click_behavior")}
             onChange={(e) =>
               updateSetting({
-                fabClickAction: Number(e.target.value),}
+                fabClickAction: Number(e.target.value),
+              })
           >
             <MenuItem value={0}>{i18n("fab_click_menu")}</MenuItem>
             <MenuItem value={1}>{i18n("fab_click_translate")}</MenuItem>
