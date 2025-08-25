@@ -117,7 +117,7 @@ export default function Settings() {
     httpTimeout = DEFAULT_HTTP_TIMEOUT,
     contextMenuType = 1,
     touchTranslate = 2,
-    fabClickAction,
+    fabClickAction = 0,
     blacklist = DEFAULT_BLACKLIST.join(",\n"),
     csplist = DEFAULT_CSPLIST.join(",\n"),
     transInterval = 500,
