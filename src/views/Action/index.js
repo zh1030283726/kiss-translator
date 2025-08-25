@@ -33,7 +33,7 @@ export default function Action({ translator, fab }) {
   });
   const [moved, setMoved] = useState(false);
 
-  const { clickAction = 0 } = fab || {};
+  const { fabClickAction: clickAction = 0 } = translator.setting || {};
 
   const handleWindowResize = useMemo(
     () =>

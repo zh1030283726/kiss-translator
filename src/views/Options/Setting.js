@@ -117,12 +117,13 @@ export default function Settings() {
     httpTimeout = DEFAULT_HTTP_TIMEOUT,
     contextMenuType = 1,
     touchTranslate = 2,
+    fabClickAction,
     blacklist = DEFAULT_BLACKLIST.join(",\n"),
     csplist = DEFAULT_CSPLIST.join(",\n"),
     transInterval = 500,
     langDetector = OPT_TRANS_MICROSOFT,
   } = setting;
-  const { isHide = false, clickAction = 0 } = fab || {};
+  const { isHide = false} = fab || {};
 
   return (
     <Box>
@@ -235,10 +236,10 @@ export default function Settings() {
         <FormControl size="small">
           <InputLabel>{i18n("fab_click_behavior")}</InputLabel>
           <Select
-            name="clickAction"
-            value={clickAction}
+            name="fabClickAction"
+            value={fabClickAction}
             label={i18n("fab_click_behavior")}
-            onChange={(e) => updateFab({ clickAction: e.target.value })}
+            onChange={(e) => updateFab({ fabClickAction: e.target.value })}
           >
             <MenuItem value={0}>{i18n("fab_click_menu")}</MenuItem>
             <MenuItem value={1}>{i18n("fab_click_translate")}</MenuItem>
