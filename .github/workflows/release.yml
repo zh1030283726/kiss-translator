@@ -51,5 +51,8 @@ jobs:
           replacesArtifacts: true                              # 替换同名资产
           artifactErrorsFailBuild: true
           artifacts: |
-            build/*.zip
-          # 也可以用通配符：artifacts: "build/*.zip"
+                  ./build/chrome.zip=kiss-translator_${{ github.ref_name }}_chrome.zip,
+                  ./build/edge.zip=kiss-translator_${{ github.ref_name }}_edge.zip,
+                  ./build/firefox.zip=kiss-translator_${{ github.ref_name }}_firefox.zip,
+                  ./build/userscript.zip=kiss-translator_${{ github.ref_name }}_userscript.zip,
+                  ./build/thunderbird.zip=kiss-translator_${{ github.ref_name }}_thunderbird.zip
