@@ -252,6 +252,22 @@ export const I18N = {
     en: `Request Timeout Time (5000-30000ms)`,
     zh_TW: `請求逾時時間 (5000-30000ms)`,
   },
+  custom_header: {
+    zh: `自定义Header参数`,
+    en: `Custom Header Params`,
+  },
+  custom_header_help: {
+    zh: `使用JSON格式，例如 "User-Agent": "Mozilla/5.0 (X11; Linux x86_64; rv:141.0) Gecko/20100101 Firefox/141.0"`,
+    en: `Use JSON format, for example "User-Agent": "Mozilla/5.0 (X11; Linux x86_64; rv:141.0) Gecko/20100101 Firefox/141.0"`,
+  },
+  custom_body: {
+    zh: `自定义Body参数`,
+    en: `Custom Body Params`,
+  },
+  custom_body_help: {
+    zh: `使用JSON格式，例如 "top_p": 0.7`,
+    en: `Use JSON format, for example "top_p": 0.7`,
+  },
   min_translate_length: {
     zh: `最小翻译字符数 (1-100)`,
     en: `Minimum number Of Translated Characters (1-100)`,
@@ -477,6 +493,10 @@ export const I18N = {
     en: `Dashed Underline`,
     zh_TW: `下劃虛線`,
   },
+  dash_box: {
+    zh: `虚线框`,
+    en: `Dashed Box`,
+  },
   wavy_line: {
     zh: `下划波浪线`,
     en: `Wavy Underline`,
@@ -523,9 +543,9 @@ export const I18N = {
     zh_TW: `1. 支援星號 (*) 萬用字元。2. 多個 URL 請以換行或英文逗號「,」分隔。`,
   },
   selector_helper: {
-    zh: `1、遵循CSS选择器语法。2、多个CSS选择器之间用“;”隔开。3、“shadow root”选择器和内部选择器用“>>>”隔开。`,
-    en: `1. Follow CSS selector syntax. 2. Separate multiple CSS selectors with ";". 3. The "shadow root" selector and the internal selector are separated by ">>>".`,
-    zh_TW: `1. 遵循 CSS 選擇器語法。2. 多個 CSS 選擇器以「;」分隔。3.「shadow root」與內部選擇器以「>>>」分隔。`,
+    zh: `1、遵循CSS选择器语法。2、多个CSS选择器之间用“;”隔开。`,
+    en: `1. Follow CSS selector syntax. 2. Separate multiple CSS selectors with ";".`,
+    zh_TW: `1. 遵循 CSS 選擇器語法。2. 多個 CSS 選擇器以「;」分隔。`,
   },
   translate_switch: {
     zh: `开启翻译`,
