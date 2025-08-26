@@ -78,7 +78,7 @@ export default function Settings() {
       case "touchTranslate":
         value = limitNumber(value, 0, 4);
         break;
-        case "fabClickAction":
+      case "fabClickAction":
         value = limitNumber(value, 0, 1);
        break;
       case "contextMenuType":
@@ -238,11 +238,11 @@ export default function Settings() {
         </FormControl>
 
         <FormControl size="small">
-          <InputLabel>{i18n("fab_click_behavior")}</InputLabel>
+          <InputLabel>{i18n("fab_click_action")}</InputLabel>
           <Select
             name="fabClickAction"
-            value={fabClickAction}
-            label={i18n("fab_click_behavior")}
+            value={fabClickAction}  
+            label={i18n("fab_click_action")}
             onChange={handleChange}
           >
             <MenuItem value={0}>{i18n("fab_click_menu")}</MenuItem>

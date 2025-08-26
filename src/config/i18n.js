@@ -847,7 +847,7 @@ export const I18N = {
     en: `Hide Fab Button`,
     zh_TW: `隱藏懸浮按鈕`,
   },
-  fab_click_behavior: {
+  fab_click_action: {
     zh: `单击悬浮按钮动作`,
     en: `Single Tab Fab Action`,
     zh_TW: `單擊懸浮按钮動作`,
