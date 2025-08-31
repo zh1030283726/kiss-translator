@@ -77,10 +77,7 @@ export default function Settings() {
         break;
       case "touchTranslate":
         value = limitNumber(value, 0, 4);
-        break;
-      case "fabClickAction":
-        value = limitNumber(value, 0, 1);
-       break;
+        break;;
       case "contextMenuType":
         isExt && sendBgMsg(MSG_CONTEXT_MENUS, value);
         break;
