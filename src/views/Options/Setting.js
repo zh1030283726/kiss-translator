@@ -44,52 +44,48 @@ function ShortcutItem({ action, label }) {
   );
 }
 
-export default function Settings() {
-  const i18n = useI18n();
-  const { setting, updateSetting } = useSetting();
-  const alert = useAlert();
-  const { fab, updateFab } = useFab();
-
-  const handleChange = (e) => {
-    e.preventDefault();
-    let { name, value } = e.target;
-    switch (name) {
-      case "fetchLimit":
-        value = limitNumber(value, 1, 100);
-        break;
-      case "fetchInterval":
-        value = limitNumber(value, 0, 5000);
-        break;
-      case "transInterval":
-        value = limitNumber(value, 100, 5000);
-        break;
-      case "minLength":
-        value = limitNumber(value, 1, 100);
-        break;
-      case "maxLength":
-        value = limitNumber(value, 100, 10000);
-        break;
-      case "newlineLength":
-        value = limitNumber(value, 1, 1000);
-        break;
-      case "httpTimeout":
-        value = limitNumber(value, 5000, 30000);
-        break;
-      case "touchTranslate":
-        value = limitNumber(value, 0, 4);
-        break;
-      case "fabClickAction":
-          value = limitNumber(value,0,1);
-        break;
-      case "contextMenuType":
-        isExt && sendBgMsg(MSG_CONTEXT_MENUS, value);
-        break;
-      case "csplist":
-        isExt && sendBgMsg(MSG_UPDATE_CSP, value);
-        break;
-      
-      default:
-    }
+  export default function Settings() {
+    const i18n = useI18n();
+    const { setting, updateSetting } = useSetting();
+    const alert = useAlert();
+    const { fab, updateFab } = useFab();
+  
+    const handleChange = (e) => {
+      e.preventDefault();
+      let { name, value } = e.target;
+      switch (name) {
+        case "fetchLimit":
+          value = limitNumber(value, 1, 100);
+          break;
+        case "fetchInterval":
+          value = limitNumber(value, 0, 5000);
+          break;
+        case "transInterval":
+          value = limitNumber(value, 100, 5000);
+          break;
+        case "minLength":
+          value = limitNumber(value, 1, 100);
+          break;
+        case "maxLength":
+          value = limitNumber(value, 100, 10000);
+          break;
+        case "newlineLength":
+          value = limitNumber(value, 1, 1000);
+          break;
+        case "httpTimeout":
+          value = limitNumber(value, 5000, 30000);
+          break;
+        case "touchTranslate":
+          value = limitNumber(value, 0, 4);
+          break;
+        case "contextMenuType":
+          isExt && sendBgMsg(MSG_CONTEXT_MENUS, value);
+          break;
+        case "csplist":
+          isExt && sendBgMsg(MSG_UPDATE_CSP, value);
+          break;
+        default:
+      }
     updateSetting({
       [name]: value,
     });
