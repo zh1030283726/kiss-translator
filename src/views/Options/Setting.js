@@ -239,7 +239,7 @@ function ShortcutItem({ action, label }) {
             name="fabClickAction"
             value={fabClickAction}  
             label={i18n("fab_click_action")}
-            onChange={handleChange}
+            onChange= {(e) => updateFab({ fabClickAction: e.target.value })}
           >
             <MenuItem value={0}>{i18n("fab_click_menu")}</MenuItem>
             <MenuItem value={1}>{i18n("fab_click_translate")}</MenuItem>
