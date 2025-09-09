@@ -117,13 +117,12 @@ function ShortcutItem({ action, label }) {
     httpTimeout = DEFAULT_HTTP_TIMEOUT,
     contextMenuType = 1,
     touchTranslate = 2,
-    fabClickAction = 0,
     blacklist = DEFAULT_BLACKLIST.join(",\n"),
     csplist = DEFAULT_CSPLIST.join(",\n"),
     transInterval = 500,
     langDetector = OPT_TRANS_MICROSOFT,
   } = setting;
-  const { isHide = false} = fab || {};
+  const { isHide = false, fabClickAction = 0 } = fab || {};
 
   return (
     <Box>
