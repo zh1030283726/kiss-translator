@@ -543,9 +543,9 @@ export const I18N = {
     zh_TW: `1. 支援星號 (*) 萬用字元。2. 多個 URL 請以換行或英文逗號「,」分隔。`,
   },
   selector_helper: {
-    zh: `1、遵循CSS选择器语法。2、多个CSS选择器之间用“;”隔开。`,
-    en: `1. Follow CSS selector syntax. 2. Separate multiple CSS selectors with ";".`,
-    zh_TW: `1. 遵循 CSS 選擇器語法。2. 多個 CSS 選擇器以「;」分隔。`,
+    zh: `1、遵循CSS选择器语法。2、多个CSS选择器之间用“;”隔开。3、“shadow root”选择器和内部选择器用“>>>”隔开。`,
+    en: `1. Follow CSS selector syntax. 2. Separate multiple CSS selectors with ";". 3. The "shadow root" selector and the internal selector are separated by ">>>".`,
+    zh_TW: `1. 遵循 CSS 選擇器語法。2. 多個 CSS 選擇器以「;」分隔。3.「shadow root」與內部選擇器以「>>>」分隔。`,
   },
   translate_switch: {
     zh: `开启翻译`,
@@ -847,7 +847,11 @@ export const I18N = {
     en: `Hide Fab Button`,
     zh_TW: `隱藏懸浮按鈕`,
   },
-
+  fab_click_action: {
+    zh: `单击悬浮按钮动作`,
+    en: `Single Tab Fab Action`,
+    zh_TW: `單擊懸浮按钮動作`,
+  },
   hide_tran_button: {
     zh: `隐藏翻译按钮`,
     en: `Hide Translate Button`,
